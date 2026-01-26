@@ -18,5 +18,6 @@
 
         <!-- Mapeo de clases -->
         <mapping class="org.example.mapeo.Entidad"/>
+        <mapping class="org.example.mapeo.Categoria"/>
     </session-factory>
 </hibernate-configuration>

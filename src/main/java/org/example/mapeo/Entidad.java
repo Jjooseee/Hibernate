@@ -13,11 +13,17 @@ public class Entidad {
     @Column(name = "nombre")
     private String nombre;
 
-    // Constructor, getters y setters
-    public Entidad() {}
+    @ManyToOne
+    @JoinColumn(name = "categoria_id", nullable = false)
+    private Categoria categoria;
 
-    public Entidad(String nombre) {
+    public Entidad() {
+    }
+
+    public Entidad(String nombre, Categoria categoria) {
         this.nombre = nombre;
+        this.categoria = categoria;
+
     }
 
     public int getId() {
@@ -36,9 +42,21 @@ public class Entidad {
         this.nombre = nombre;
     }
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoriaId) {
+        this.categoria = categoriaId;
+    }
+
     @Override
-    public String toString() {
-        return "Entidad{id=" + id + ", nombre='" + nombre + '\'' + '}';
+    public String
+    toString() {
+        return "Entidad{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", categoria=" + categoria +
+                '}';
     }
 }
-
